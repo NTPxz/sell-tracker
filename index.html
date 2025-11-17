@@ -2,22 +2,16 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>ตารางบันทึกการซื้อของ</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -26,27 +20,9 @@
             padding: 30px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-
-        h1 {
-            text-align: center;
-            color: #667eea;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-        }
-
-        h2 {
-            color: #ff6b6b;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
+        h1 { text-align: center; color: #667eea; margin-bottom: 30px; font-size: 2.5em; }
+        h2 { color: #ff6b6b; margin-bottom: 20px; }
+        h3 { color: #667eea; margin-bottom: 15px; }
         .products-section {
             background: #fff3cd;
             padding: 25px;
@@ -54,7 +30,6 @@
             margin-bottom: 30px;
             border: 3px solid #ffc107;
         }
-
         .product-card {
             background: white;
             padding: 20px;
@@ -63,7 +38,6 @@
             margin-bottom: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
         .product-header {
             display: flex;
             justify-content: space-between;
@@ -74,20 +48,12 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-
-        .product-name-display {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #667eea;
-        }
-
+        .product-name-display { font-size: 1.5em; font-weight: bold; color: #667eea; }
         .numbers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
-            margin-bottom: 15px;
         }
-
         .number-item {
             background: #f8f9fa;
             padding: 15px;
@@ -95,54 +61,29 @@
             border: 2px solid #dee2e6;
             transition: all 0.3s;
         }
-
         .number-item:hover {
             border-color: #667eea;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
         }
-
         .winner-highlight {
             background: #d4edda !important;
             border-color: #28a745 !important;
         }
-
-        .winner-highlight:hover {
-            border-color: #28a745 !important;
-            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3) !important;
-        }
-
         .number-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-
-        .number-label {
-            font-weight: bold;
-            color: #495057;
-            font-size: 1.1em;
-        }
-
+        .number-label { font-weight: bold; color: #495057; font-size: 1.1em; }
         .add-product-form {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
-
-        .add-product-form input {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .product-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
+        .add-product-form input { flex: 1; min-width: 200px; }
         .customer-tag {
             background: #2196F3;
             color: white;
@@ -152,8 +93,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            margin: 5px;
         }
-
         .customer-tag button {
             background: none;
             border: none;
@@ -163,11 +104,6 @@
             padding: 0;
             margin-left: 5px;
         }
-
-        .customer-tag button:hover {
-            color: #ffcdd2;
-        }
-
         .summary-section {
             background: white;
             padding: 20px;
@@ -175,7 +111,6 @@
             margin-bottom: 20px;
             border: 2px solid #e9ecef;
         }
-
         .detailed-summary-card {
             background: white;
             border: 2px solid #e9ecef;
@@ -184,7 +119,6 @@
             margin-bottom: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
         .summary-header {
             display: flex;
             justify-content: space-between;
@@ -195,25 +129,13 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
-        .summary-customer-name {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .summary-total {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #28a745;
-        }
-
+        .summary-customer-name { font-size: 1.5em; font-weight: bold; color: #667eea; }
+        .summary-total { font-size: 1.3em; font-weight: bold; color: #28a745; }
         .summary-items-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
-
         .summary-items-table th {
             background: #f8f9fa;
             padding: 10px;
@@ -221,12 +143,10 @@
             border-bottom: 2px solid #dee2e6;
             font-weight: 600;
         }
-
         .summary-items-table td {
             padding: 10px;
             border-bottom: 1px solid #e9ecef;
         }
-
         .winner-badge {
             background: #28a745;
             color: white;
@@ -235,73 +155,42 @@
             font-size: 0.85em;
             font-weight: bold;
         }
-
-        input[type="text"],
-        input[type="number"],
-        select {
+        input[type="text"], input[type="number"], select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 2px solid #e9ecef;
             border-radius: 8px;
-            font-size: 1em;
+            font-size: 16px;
             transition: all 0.3s;
             background: white;
+            -webkit-appearance: none;
         }
-
-        input[type="text"]:focus,
-        input[type="number"]:focus,
-        select:focus {
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
-
         .btn {
-            padding: 12px 24px;
+            padding: 14px 24px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 16px;
             font-weight: 600;
             transition: all 0.3s;
             margin: 5px;
+            -webkit-tap-highlight-color: transparent;
         }
-
-        .btn-success {
-            background: #28a745;
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #218838;
-            transform: translateY(-2px);
-        }
-
-        .btn-danger {
-            background: #dc3545;
-            color: white;
-            padding: 8px 12px;
-            font-size: 0.9em;
-        }
-
-        .btn-danger:hover {
-            background: #c82333;
-        }
-
+        .btn-success { background: #28a745; color: white; }
+        .btn-success:active { background: #218838; }
+        .btn-danger { background: #dc3545; color: white; padding: 10px 14px; }
+        .btn-danger:active { background: #c82333; }
         .btn-export {
             background: #28a745;
             color: white;
-            padding: 15px 30px;
+            padding: 16px 32px;
             font-size: 1.1em;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
         }
-
-        .btn-export:hover {
-            background: #218838;
-        }
-
         .grand-total {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -311,54 +200,12 @@
             margin-top: 30px;
             font-size: 1.8em;
             font-weight: bold;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
-
-        .export-section {
-            text-align: center;
-            margin-top: 20px;
-        }
-
+        .export-section { text-align: center; margin-top: 20px; }
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .btn {
-                padding: 10px 16px;
-                font-size: 0.9em;
-            }
-
-            .grand-total {
-                font-size: 1.4em;
-                padding: 20px;
-            }
-
-            .numbers-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .container {
-                max-width: 95%;
-            }
-
-            input[type="text"],
-            input[type="number"],
-            select {
-                font-size: 1.1em;
-                padding: 12px;
-            }
-
-            .btn {
-                padding: 14px 28px;
-                font-size: 1.1em;
-            }
+            .container { padding: 15px; }
+            h1 { font-size: 1.8em; }
+            .numbers-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -366,32 +213,25 @@
     <div class="container">
         <h1>📝 ตารางบันทึกการซื้อของ</h1>
 
-        <!-- Customer Management Section -->
         <div class="products-section" style="background: #e7f3ff; border-color: #2196F3;">
             <h2>👥 จัดการลูกค้า</h2>
-            
             <div class="add-product-form">
                 <input type="text" id="newCustomerName" placeholder="ชื่อลูกค้า" />
                 <button class="btn btn-success" onclick="addCustomer()">➕ เพิ่มลูกค้า</button>
             </div>
-
-            <div id="customerList" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;"></div>
+            <div id="customerList"></div>
         </div>
 
-        <!-- Products Management Section -->
         <div class="products-section">
             <h2>🏷️ จัดการสินค้า</h2>
-            
             <div class="add-product-form">
                 <input type="text" id="newProductName" placeholder="ชื่อสินค้า" />
                 <input type="number" id="newProductPrice" placeholder="ราคาต่อเลข (บาท)" min="0" step="0.01" />
                 <button class="btn btn-success" onclick="addProduct()">➕ เพิ่มสินค้าใหม่</button>
             </div>
-
             <div class="product-list" id="productList"></div>
         </div>
 
-        <!-- Summary Section -->
         <div class="summary-section">
             <h3>📊 สรุปยอดของแต่ละคน</h3>
             <div id="detailedSummary"></div>
@@ -402,472 +242,304 @@
         </div>
 
         <div class="export-section">
-            <button class="btn btn-export" onclick="exportToExcel()">
-                📊 Export รายงานเป็น Excel
-            </button>
+            <button class="btn btn-export" onclick="exportToExcel()">📊 Export รายงานเป็น Excel</button>
         </div>
     </div>
 
-    <!-- SheetJS Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
     <script>
-        let products = [];
-        let customers = [];
+var products = [];
+var customers = [];
 
-        // Load data from localStorage on page load
-        window.onload = function() {
-            const savedData = localStorage.getItem('shoppingTrackerData');
-            if (savedData) {
-                try {
-                    const parsed = JSON.parse(savedData);
-                    products = Array.isArray(parsed.products) ? parsed.products : [];
-                    customers = Array.isArray(parsed.customers) ? parsed.customers : [];
-                } catch (e) {
-                    console.error('Error loading data:', e);
-                    products = [];
-                    customers = [];
+window.onload = function() {
+    var savedData = localStorage.getItem('shoppingTrackerData');
+    if (savedData) {
+        try {
+            var parsed = JSON.parse(savedData);
+            products = Array.isArray(parsed.products) ? parsed.products : [];
+            customers = Array.isArray(parsed.customers) ? parsed.customers : [];
+        } catch (e) {
+            console.error('Error:', e);
+            products = [];
+            customers = [];
+        }
+    }
+    renderCustomers();
+    renderProducts();
+    renderSummary();
+};
+
+function saveData() {
+    localStorage.setItem('shoppingTrackerData', JSON.stringify({
+        products: products,
+        customers: customers
+    }));
+}
+
+function addCustomer() {
+    var nameInput = document.getElementById('newCustomerName');
+    var name = nameInput.value.trim();
+    
+    if (!name) {
+        alert('กรุณาใส่ชื่อลูกค้า');
+        return;
+    }
+    if (customers.indexOf(name) !== -1) {
+        alert('ลูกค้านี้มีอยู่แล้ว');
+        return;
+    }
+    customers.push(name);
+    customers.sort();
+    nameInput.value = '';
+    renderCustomers();
+    renderProducts();
+    saveData();
+}
+
+function deleteCustomer(customerName) {
+    if (!confirm('ต้องการลบลูกค้า "' + customerName + '" ใช่หรือไม่?')) return;
+    customers = customers.filter(function(c) { return c !== customerName; });
+    products.forEach(function(product) {
+        product.numbers.forEach(function(num) {
+            if (num.buyer === customerName) num.buyer = '';
+        });
+    });
+    renderCustomers();
+    renderProducts();
+    renderSummary();
+    saveData();
+}
+
+function renderCustomers() {
+    var container = document.getElementById('customerList');
+    if (!customers.length) {
+        container.innerHTML = '<span style="color: #999;">ยังไม่มีลูกค้า</span>';
+        return;
+    }
+    container.innerHTML = customers.map(function(c) {
+        return '<span class="customer-tag">👤 ' + c + '<button onclick="deleteCustomer(\'' + c.replace(/'/g, "\\'") + '\')">×</button></span>';
+    }).join('');
+}
+
+function addProduct() {
+    var nameInput = document.getElementById('newProductName');
+    var priceInput = document.getElementById('newProductPrice');
+    var name = nameInput.value.trim();
+    var price = parseFloat(priceInput.value);
+    
+    if (!name) {
+        alert('กรุณาใส่ชื่อสินค้า');
+        return;
+    }
+    if (isNaN(price) || price < 0) {
+        alert('กรุณาใส่ราคาที่ถูกต้อง');
+        return;
+    }
+    
+    var numbers = [];
+    for (var i = 1; i <= 10; i++) {
+        numbers.push({ number: i, buyer: '', isWinner: false });
+    }
+    
+    products.push({
+        id: Date.now(),
+        name: name,
+        price: price,
+        numbers: numbers
+    });
+    
+    nameInput.value = '';
+    priceInput.value = '';
+    renderProducts();
+    renderSummary();
+    saveData();
+}
+
+function deleteProduct(productId) {
+    if (!confirm('ต้องการลบสินค้านี้ใช่หรือไม่?')) return;
+    products = products.filter(function(p) { return p.id !== productId; });
+    renderProducts();
+    renderSummary();
+    saveData();
+}
+
+function updateBuyer(productId, numberIndex, buyerName) {
+    var product = products.find(function(p) { return p.id === productId; });
+    if (product) {
+        product.numbers[numberIndex].buyer = buyerName;
+        renderSummary();
+        saveData();
+    }
+}
+
+function toggleWinner(productId, numberIndex) {
+    var product = products.find(function(p) { return p.id === productId; });
+    if (product) {
+        product.numbers[numberIndex].isWinner = !product.numbers[numberIndex].isWinner;
+        renderProducts();
+        renderSummary();
+        saveData();
+    }
+}
+
+function renderProducts() {
+    var container = document.getElementById('productList');
+    if (!products.length) {
+        container.innerHTML = '<div style="text-align:center;color:#999;padding:20px">ยังไม่มีสินค้า</div>';
+        return;
+    }
+    
+    var customerOptions = customers.length > 0 
+        ? customers.map(function(c) { return '<option value="' + c + '">' + c + '</option>'; }).join('')
+        : '<option value="">ไม่มีลูกค้า</option>';
+    
+    var html = '';
+    products.forEach(function(product) {
+        html += '<div class="product-card">';
+        html += '<div class="product-header">';
+        html += '<div><span class="product-name-display">' + product.name + '</span>';
+        html += '<div style="color:#667eea;font-size:1.2em;margin-top:5px">ราคาเลขละ: ' + product.price.toFixed(2) + ' บาท</div></div>';
+        html += '<button class="btn btn-danger" onclick="deleteProduct(' + product.id + ')">🗑️ ลบ</button>';
+        html += '</div><div class="numbers-grid">';
+        
+        product.numbers.forEach(function(num, idx) {
+            var winClass = num.isWinner ? ' winner-highlight' : '';
+            html += '<div class="number-item' + winClass + '">';
+            html += '<div class="number-header">';
+            html += '<span class="number-label">เลข ' + num.number + '</span>';
+            html += '<label style="display:flex;align-items:center;gap:5px;cursor:pointer">';
+            html += '<input type="checkbox"' + (num.isWinner ? ' checked' : '') + ' onchange="toggleWinner(' + product.id + ',' + idx + ')" style="cursor:pointer"/>';
+            html += '<span style="font-size:0.85em;color:#28a745">🏆</span></label></div>';
+            html += '<select id="sel_' + product.id + '_' + idx + '" onchange="updateBuyer(' + product.id + ',' + idx + ',this.value)" style="margin-bottom:8px">';
+            html += '<option value="">-- เลือกลูกค้า --</option>' + customerOptions + '</select>';
+            html += num.buyer ? '<div style="margin-top:8px;color:#667eea;font-weight:bold">👤 ' + num.buyer + '</div>' : '<div style="margin-top:8px;color:#999;font-size:0.85em">ยังไม่เลือก</div>';
+            html += '</div>';
+        });
+        
+        html += '</div></div>';
+    });
+    
+    container.innerHTML = html;
+    
+    setTimeout(function() {
+        products.forEach(function(product) {
+            product.numbers.forEach(function(num, idx) {
+                if (num.buyer) {
+                    var sel = document.getElementById('sel_' + product.id + '_' + idx);
+                    if (sel) sel.value = num.buyer;
+                }
+            });
+        });
+    }, 100);
+}
+
+function calculateCustomerDetails() {
+    var details = {};
+    products.forEach(function(product) {
+        product.numbers.forEach(function(num) {
+            if (num.buyer && num.buyer.trim()) {
+                var name = num.buyer.trim();
+                if (!details[name]) {
+                    details[name] = { items: [], total: 0, winCount: 0, winAmount: 0 };
+                }
+                details[name].items.push({
+                    product: product.name,
+                    number: num.number,
+                    price: product.price,
+                    isWinner: num.isWinner
+                });
+                details[name].total += product.price;
+                if (num.isWinner) {
+                    details[name].winCount++;
+                    details[name].winAmount += product.price;
                 }
             }
-            renderCustomers();
-            renderProducts();
-            renderSummary();
-        };
-
-        function saveData() {
-            localStorage.setItem('shoppingTrackerData', JSON.stringify({
-                products: products,
-                customers: customers
-            }));
-        }
-
-        // ========== Customer Management ==========
-        function addCustomer() {
-            const nameInput = document.getElementById('newCustomerName');
-            const name = nameInput.value.trim();
-            
-            if (name === '') {
-                alert('กรุณาใส่ชื่อลูกค้า');
-                return;
-            }
-
-            if (customers.includes(name)) {
-                alert('ลูกค้านี้มีอยู่แล้ว');
-                return;
-            }
-
-            customers.push(name);
-            customers.sort();
-            nameInput.value = '';
-            renderCustomers();
-            renderProducts();
-            saveData();
-        }
-
-        function deleteCustomer(customerName) {
-            if (confirm('ต้องการลบลูกค้า "' + customerName + '" ใช่หรือไม่?\n(จะลบออกจากเลขที่เลือกทั้งหมดด้วย)')) {
-                customers = customers.filter(c => c !== customerName);
-                
-                products.forEach(product => {
-                    product.numbers.forEach(num => {
-                        if (num.buyer === customerName) {
-                            num.buyer = '';
-                        }
-                    });
-                });
-                
-                renderCustomers();
-                renderProducts();
-                renderSummary();
-                saveData();
-            }
-        }
-
-        function renderCustomers() {
-            const container = document.getElementById('customerList');
-            
-            if (customers.length === 0) {
-                container.innerHTML = '<span style="color: #999;">ยังไม่มีลูกค้า กรุณาเพิ่มลูกค้า</span>';
-                return;
-            }
-
-            container.innerHTML = customers.map(customer => {
-                const safeName = customer.replace(/'/g, "\\'");
-                return '<span class="customer-tag">👤 ' + customer + '<button onclick="deleteCustomer(\'' + safeName + '\')">×</button></span>';
-            }).join('');
-        }
-
-        // ========== Product Management ==========
-        function addProduct() {
-            const nameInput = document.getElementById('newProductName');
-            const priceInput = document.getElementById('newProductPrice');
-            
-            const name = nameInput.value.trim();
-            const price = parseFloat(priceInput.value);
-            
-            if (name === '') {
-                alert('กรุณาใส่ชื่อสินค้า');
-                return;
-            }
-            
-            if (isNaN(price) || price < 0) {
-                alert('กรุณาใส่ราคาที่ถูกต้อง');
-                return;
-            }
-
-            const numbers = [];
-            for (let i = 1; i <= 10; i++) {
-                numbers.push({
-                    number: i,
-                    buyer: '',
-                    isWinner: false
-                });
-            }
-
-            products.push({
-                id: Date.now(),
-                name: name,
-                price: price,
-                numbers: numbers
-            });
-
-            nameInput.value = '';
-            priceInput.value = '';
-            renderProducts();
-            renderSummary();
-            saveData();
-        }
-
-        function deleteProduct(productId) {
-            if (confirm('ต้องการลบสินค้านี้ใช่หรือไม่?')) {
-                products = products.filter(p => p.id !== productId);
-                renderProducts();
-                renderSummary();
-                saveData();
-            }
-        }
-
-        function updateBuyer(productId, numberIndex, buyerName) {
-            const product = products.find(p => p.id === productId);
-            if (product) {
-                product.numbers[numberIndex].buyer = buyerName;
-                renderSummary();
-                saveData();
-            }
-        }
-
-        function toggleWinner(productId, numberIndex) {
-            const product = products.find(p => p.id === productId);
-            if (product) {
-                product.numbers[numberIndex].isWinner = !product.numbers[numberIndex].isWinner;
-                renderProducts();
-                renderSummary();
-                saveData();
-            }
-        }
-
-        function renderProducts() {
-            const container = document.getElementById('productList');
-            
-            if (products.length === 0) {
-                container.innerHTML = '<div style="text-align: center; color: #999; padding: 20px;">ยังไม่มีสินค้า กรุณาเพิ่มสินค้าใหม่</div>';
-                return;
-            }
-
-            const customerOptions = customers.length > 0 
-                ? customers.map(c => '<option value="' + c + '">' + c + '</option>').join('')
-                : '<option value="">ไม่มีลูกค้า - กรุณาเพิ่มลูกค้าก่อน</option>';
-
-            container.innerHTML = products.map(product => {
-                const numbersHtml = product.numbers.map((num, index) => {
-                    const winnerClass = num.isWinner ? 'winner-highlight' : '';
-                    const selectId = 'select_' + product.id + '_' + index;
-                    return '<div class="number-item ' + winnerClass + '">' +
-                        '<div class="number-header">' +
-                            '<span class="number-label">เลข ' + num.number + '</span>' +
-                            '<label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">' +
-                                '<input type="checkbox" ' + (num.isWinner ? 'checked' : '') + ' ' +
-                                'onchange="toggleWinner(' + product.id + ', ' + index + ')" ' +
-                                'style="cursor: pointer;" />' +
-                                '<span style="font-size: 0.85em; color: #28a745;">🏆</span>' +
-                            '</label>' +
-                        '</div>' +
-                        '<select id="' + selectId + '" onchange="updateBuyer(' + product.id + ', ' + index + ', this.value)">' +
-                            '<option value="">-- เลือกลูกค้า --</option>' +
-                            customerOptions +
-                        '</select>' +
-                        (num.buyer ? '<div style="margin-top: 8px; color: #667eea; font-weight: bold;">👤 ' + num.buyer + '</div>' : 
-                         '<div style="margin-top: 8px; color: #999; font-size: 0.85em;">ยังไม่เลือกลูกค้า</div>') +
-                    '</div>';
-                }).join('');
-
-                return '<div class="product-card">' +
-                    '<div class="product-header">' +
-                        '<div>' +
-                            '<span class="product-name-display">' + product.name + '</span>' +
-                            '<div style="color: #667eea; font-size: 1.2em; margin-top: 5px;">' +
-                                'ราคาเลขละ: ' + product.price.toFixed(2) + ' บาท' +
-                            '</div>' +
-                        '</div>' +
-                        '<button class="btn btn-danger" onclick="deleteProduct(' + product.id + ')">🗑️ ลบสินค้า</button>' +
-                    '</div>' +
-                    '<div class="numbers-grid">' + numbersHtml + '</div>' +
-                '</div>';
-            }).join('');
-
-            // Set selected values after rendering
-            products.forEach(product => {
-                product.numbers.forEach((num, index) => {
-                    if (num.buyer) {
-                        const selectId = 'select_' + product.id + '_' + index;
-                        const selectElement = document.getElementById(selectId);
-                        if (selectElement) {
-                            selectElement.value = num.buyer;
-                        }
-                    }
-                });
-            });
-        }
-
-        function calculateCustomerDetails() {
-            const customerDetails = {};
-
-            products.forEach(product => {
-                product.numbers.forEach(num => {
-                    if (num.buyer && num.buyer.trim() !== '') {
-                        const customerName = num.buyer.trim();
-                        if (!customerDetails[customerName]) {
-                            customerDetails[customerName] = {
-                                items: [],
-                                total: 0,
-                                winCount: 0,
-                                winAmount: 0
-                            };
-                        }
-                        customerDetails[customerName].items.push({
-                            product: product.name,
-                            number: num.number,
-                            price: product.price,
-                            isWinner: num.isWinner
-                        });
-                        customerDetails[customerName].total += product.price;
-                        if (num.isWinner) {
-                            customerDetails[customerName].winCount += 1;
-                            customerDetails[customerName].winAmount += product.price;
-                        }
-                    }
-                });
-            });
-
-            return customerDetails;
-        }
-
-        function calculateGrandTotal() {
-            let total = 0;
-            products.forEach(product => {
-                product.numbers.forEach(num => {
-                    if (num.buyer) {
-                        total += product.price;
-                    }
-                });
-            });
-            return total;
-        }
-
-        function renderSummary() {
-            const customerDetails = calculateCustomerDetails();
-            const container = document.getElementById('detailedSummary');
-            
-            if (Object.keys(customerDetails).length === 0) {
-                container.innerHTML = '<div style="text-align: center; color: #999; padding: 40px;">ยังไม่มีข้อมูล</div>';
-                document.getElementById('grandTotal').textContent = '0.00';
-                return;
-            }
-
-            const sortedCustomers = Object.entries(customerDetails).sort((a, b) => a[0].localeCompare(b[0]));
-
-            container.innerHTML = sortedCustomers.map(([name, data]) => {
-                const itemsHtml = data.items.map(item => {
-                    return '<tr>' +
-                        '<td><strong>' + item.product + '</strong></td>' +
-                        '<td>เลข ' + item.number + '</td>' +
-                        '<td>' + item.price.toFixed(2) + ' บาท</td>' +
-                        '<td>' + (item.isWinner ? '<span class="winner-badge">🏆 ถูกรางวัล</span>' : '-') + '</td>' +
-                    '</tr>';
-                }).join('');
-
-                return '<div class="detailed-summary-card">' +
-                    '<div class="summary-header">' +
-                        '<span class="summary-customer-name">👤 ' + name + '</span>' +
-                        '<span class="summary-total">รวม: ' + data.total.toFixed(2) + ' บาท</span>' +
-                    '</div>' +
-                    '<table class="summary-items-table">' +
-                        '<thead>' +
-                            '<tr>' +
-                                '<th>สินค้า</th>' +
-                                '<th>เลขที่</th>' +
-                                '<th>ราคา</th>' +
-                                '<th>สถานะ</th>' +
-                            '</tr>' +
-                        '</thead>' +
-                        '<tbody>' +
-                            itemsHtml +
-                            '<tr style="background: #f8f9fa; font-weight: bold;">' +
-                                '<td colspan="2">รวมทั้งหมด</td>' +
-                                '<td>' + data.total.toFixed(2) + ' บาท</td>' +
-                                '<td>' + (data.winCount > 0 ? '🏆 ' + data.winCount + ' เลข (' + data.winAmount.toFixed(2) + ' บาท)' : '-') + '</td>' +
-                            '</tr>' +
-                        '</tbody>' +
-                    '</table>' +
-                '</div>';
-            }).join('');
-
-            document.getElementById('grandTotal').textContent = calculateGrandTotal().toFixed(2);
-        }
-
-        // Allow Enter key
-        document.getElementById('newCustomerName').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                addCustomer();
-            }
         });
+    });
+    return details;
+}
 
-        document.getElementById('newProductName').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.getElementById('newProductPrice').focus();
-            }
+function calculateGrandTotal() {
+    var total = 0;
+    products.forEach(function(product) {
+        product.numbers.forEach(function(num) {
+            if (num.buyer) total += product.price;
         });
+    });
+    return total;
+}
 
-        document.getElementById('newProductPrice').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                addProduct();
-            }
+function renderSummary() {
+    var details = calculateCustomerDetails();
+    var container = document.getElementById('detailedSummary');
+    
+    if (!Object.keys(details).length) {
+        container.innerHTML = '<div style="text-align:center;color:#999;padding:40px">ยังไม่มีข้อมูล</div>';
+        document.getElementById('grandTotal').textContent = '0.00';
+        return;
+    }
+    
+    var sorted = Object.keys(details).sort().map(function(k) { return [k, details[k]]; });
+    var html = '';
+    
+    sorted.forEach(function(pair) {
+        var name = pair[0];
+        var data = pair[1];
+        html += '<div class="detailed-summary-card">';
+        html += '<div class="summary-header">';
+        html += '<span class="summary-customer-name">👤 ' + name + '</span>';
+        html += '<span class="summary-total">รวม: ' + data.total.toFixed(2) + ' บาท</span></div>';
+        html += '<table class="summary-items-table"><thead><tr>';
+        html += '<th>สินค้า</th><th>เลขที่</th><th>ราคา</th><th>สถานะ</th></tr></thead><tbody>';
+        
+        data.items.forEach(function(item) {
+            html += '<tr><td><strong>' + item.product + '</strong></td>';
+            html += '<td>เลข ' + item.number + '</td>';
+            html += '<td>' + item.price.toFixed(2) + ' บาท</td>';
+            html += '<td>' + (item.isWinner ? '<span class="winner-badge">🏆 ถูกรางวัล</span>' : '-') + '</td></tr>';
         });
+        
+        html += '<tr style="background:#f8f9fa;font-weight:bold">';
+        html += '<td colspan="2">รวมทั้งหมด</td>';
+        html += '<td>' + data.total.toFixed(2) + ' บาท</td>';
+        html += '<td>' + (data.winCount > 0 ? '🏆 ' + data.winCount + ' เลข (' + data.winAmount.toFixed(2) + ' บาท)' : '-') + '</td>';
+        html += '</tr></tbody></table></div>';
+    });
+    
+    container.innerHTML = html;
+    document.getElementById('grandTotal').textContent = calculateGrandTotal().toFixed(2);
+}
 
-        // ========== Export to Excel ==========
-        function exportToExcel() {
-            if (products.length === 0) {
-                alert('ไม่มีข้อมูลให้ Export กรุณาเพิ่มสินค้าก่อน');
-                return;
-            }
+document.getElementById('newCustomerName').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') addCustomer();
+});
+document.getElementById('newProductName').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') document.getElementById('newProductPrice').focus();
+});
+document.getElementById('newProductPrice').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') addProduct();
+});
 
-            const wb = XLSX.utils.book_new();
-            const customerDetails = calculateCustomerDetails();
-
-            // Sheet 1: สรุปยอดลูกค้า
-            const summaryData = [
-                ['สรุปยอดของแต่ละลูกค้า'],
-                [],
-                ['ลูกค้า', 'จำนวนเลข', 'ยอดรวม (บาท)', 'ถูกรางวัล (เลข)', 'ยอดถูกรางวัล (บาท)']
-            ];
-
-            const sortedCustomers = Object.entries(customerDetails).sort((a, b) => a[0].localeCompare(b[0]));
-            sortedCustomers.forEach(([name, data]) => {
-                summaryData.push([
-                    name,
-                    data.items.length,
-                    data.total,
-                    data.winCount,
-                    data.winAmount
-                ]);
-            });
-
-            summaryData.push([]);
-            summaryData.push(['ยอดรวมทั้งหมด', '', calculateGrandTotal(), '', '']);
-
-            const ws1 = XLSX.utils.aoa_to_sheet(summaryData);
-            ws1['!cols'] = [{ wch: 25 }, { wch: 15 }, { wch: 18 }, { wch: 20 }, { wch: 22 }];
-            XLSX.utils.book_append_sheet(wb, ws1, 'สรุปยอดลูกค้า');
-
-            // Sheet 2: รายละเอียดทั้งหมด
-            const detailData = [
-                ['รายละเอียดการซื้อทั้งหมด'],
-                [],
-                ['ลูกค้า', 'สินค้า', 'เลขที่', 'ราคา', 'ถูกรางวัล']
-            ];
-
-            sortedCustomers.forEach(([name, data]) => {
-                data.items.forEach((item, index) => {
-                    detailData.push([
-                        index === 0 ? name : '',
-                        item.product,
-                        'เลข ' + item.number,
-                        item.price,
-                        item.isWinner ? '🏆 ถูกรางวัล' : ''
-                    ]);
-                });
-                detailData.push([]);
-            });
-
-            const ws2 = XLSX.utils.aoa_to_sheet(detailData);
-            ws2['!cols'] = [{ wch: 25 }, { wch: 25 }, { wch: 12 }, { wch: 12 }, { wch: 15 }];
-            XLSX.utils.book_append_sheet(wb, ws2, 'รายละเอียดทั้งหมด');
-
-            // Sheet 3+: รายละเอียดแต่ละลูกค้า
-            sortedCustomers.forEach(([name, data]) => {
-                const customerData = [
-                    ['ลูกค้า: ' + name],
-                    [],
-                    ['สินค้า', 'เลขที่', 'ราคา', 'ถูกรางวัล']
-                ];
-
-                data.items.forEach(item => {
-                    customerData.push([
-                        item.product,
-                        'เลข ' + item.number,
-                        item.price,
-                        item.isWinner ? '🏆 ถูกรางวัล' : ''
-                    ]);
-                });
-
-                customerData.push([]);
-                customerData.push(['รวมทั้งหมด', '', data.total, '']);
-                if (data.winCount > 0) {
-                    customerData.push(['ถูกรางวัลรวม', data.winCount + ' เลข', data.winAmount, '']);
-                }
-
-                const wsCustomer = XLSX.utils.aoa_to_sheet(customerData);
-                wsCustomer['!cols'] = [{ wch: 25 }, { wch: 12 }, { wch: 15 }, { wch: 15 }];
-
-                const sheetName = name.substring(0, 31).replace(/[:\\/?*\[\]]/g, '');
-                XLSX.utils.book_append_sheet(wb, wsCustomer, sheetName);
-            });
-
-            // Sheet: แยกตามสินค้า
-            products.forEach(product => {
-                const productData = [
-                    ['สินค้า: ' + product.name],
-                    ['ราคาต่อเลข: ' + product.price.toFixed(2) + ' บาท'],
-                    [],
-                    ['เลขที่', 'ลูกค้า', 'ราคา', 'ถูกรางวัล']
-                ];
-
-                product.numbers.forEach(num => {
-                    if (num.buyer) {
-                        productData.push([
-                            'เลข ' + num.number,
-                            num.buyer,
-                            product.price,
-                            num.isWinner ? '🏆 ถูกรางวัล' : ''
-                        ]);
-                    }
-                });
-
-                const wsProduct = XLSX.utils.aoa_to_sheet(productData);
-                wsProduct['!cols'] = [{ wch: 12 }, { wch: 20 }, { wch: 12 }, { wch: 15 }];
-
-                const sheetName = ('สินค้า_' + product.name).substring(0, 31).replace(/[:\\/?*\[\]]/g, '');
-                XLSX.utils.book_append_sheet(wb, wsProduct, sheetName);
-            });
-
-            const now = new Date();
-            const dateStr = now.getFullYear() + '-' + 
-                           String(now.getMonth() + 1).padStart(2, '0') + '-' + 
-                           String(now.getDate()).padStart(2, '0');
-            const filename = 'รายงานการซื้อของ_' + dateStr + '.xlsx';
-
-            XLSX.writeFile(wb, filename);
-        }
-    </script>
-</body>
-</html>
+function exportToExcel() {
+    if (!products.length) {
+        alert('ไม่มีข้อมูล');
+        return;
+    }
+    var wb = XLSX.utils.book_new();
+    var details = calculateCustomerDetails();
+    var summaryData = [['สรุปยอดลูกค้า'], [], ['ลูกค้า', 'จำนวนเลข', 'ยอดรวม', 'ถูกรางวัล', 'ยอดถูกรางวัล']];
+    var sorted = Object.keys(details).sort().map(function(k) { return [k, details[k]]; });
+    sorted.forEach(function(p) {
+        summaryData.push([p[0], p[1].items.length, p[1].total, p[1].winCount, p[1].winAmount]);
+    });
+    summaryData.push([]);
+    summaryData.push(['ยอดรวม', '', calculateGrandTotal(), '', '']);
+    var ws1 = XLSX.utils.aoa_to_sheet(summaryData);
+    ws1['!cols'] = [{wch:25},{wch:15},{wch:18},{wch:20},{wch:22}];
+    XLSX.utils.book_append_sheet(wb, ws1, 'สรุปยอดลูกค้า');
+    
+    var now = new Date();
+    var dateStr = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + ('0' + now.getDate()).slice(-2);
+    XLSX.writeFile(wb, 'รายงาน_' + dateStr + '.xlsx');
+}
+</script></body></html>

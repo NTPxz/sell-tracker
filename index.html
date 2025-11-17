@@ -34,96 +34,223 @@
             font-size: 2.5em;
         }
 
-        .buyer-section {
+        h2 {
+            color: #ff6b6b;
             margin-bottom: 20px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .buyer-header {
+        h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .products-section {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 3px solid #ffc107;
+        }
+
+        .product-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .product-name-display {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .number-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s;
+        }
+
+        .number-item:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .winner-highlight {
+            background: #d4edda !important;
+            border-color: #28a745 !important;
+        }
+
+        .winner-highlight:hover {
+            border-color: #28a745 !important;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3) !important;
+        }
+
+        .number-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .number-label {
+            font-weight: bold;
+            color: #495057;
+            font-size: 1.1em;
+        }
+
+        .add-product-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .add-product-form input {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .customer-tag {
+            background: #2196F3;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .customer-tag button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2em;
+            padding: 0;
+            margin-left: 5px;
+        }
+
+        .customer-tag button:hover {
+            color: #ffcdd2;
+        }
+
+        .summary-section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #e9ecef;
+        }
+
+        .detailed-summary-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .summary-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
             flex-wrap: wrap;
             gap: 10px;
         }
 
-        .buyer-name {
+        .summary-customer-name {
             font-size: 1.5em;
             font-weight: bold;
-            color: #333;
-        }
-
-        .buyer-total {
-            font-size: 1.3em;
             color: #667eea;
+        }
+
+        .summary-total {
+            font-size: 1.3em;
             font-weight: bold;
+            color: #28a745;
         }
 
-        .delete-buyer-btn {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s;
-        }
-
-        .delete-buyer-btn:hover {
-            background: #c82333;
-            transform: translateY(-2px);
-        }
-
-        table {
+        .summary-items-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 15px;
-            overflow-x: auto;
-            display: block;
+            margin-top: 10px;
         }
 
-        thead {
-            background: #667eea;
-            color: white;
-        }
-
-        th, td {
-            padding: 12px;
+        .summary-items-table th {
+            background: #f8f9fa;
+            padding: 10px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
+            border-bottom: 2px solid #dee2e6;
             font-weight: 600;
-            white-space: nowrap;
         }
 
-        tbody {
-            display: table;
-            width: 100%;
+        .summary-items-table td {
+            padding: 10px;
+            border-bottom: 1px solid #e9ecef;
         }
 
-        tbody tr:hover {
-            background: #f1f3f5;
+        .winner-badge {
+            background: #28a745;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
         }
 
         input[type="text"],
-        input[type="number"] {
+        input[type="number"],
+        select {
             width: 100%;
             padding: 10px;
             border: 2px solid #e9ecef;
             border-radius: 8px;
             font-size: 1em;
             transition: all 0.3s;
+            background: white;
         }
 
         input[type="text"]:focus,
-        input[type="number"]:focus {
+        input[type="number"]:focus,
+        select:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -138,17 +265,6 @@
             font-weight: 600;
             transition: all 0.3s;
             margin: 5px;
-        }
-
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
         .btn-success {
@@ -172,12 +288,18 @@
             background: #c82333;
         }
 
-        .button-group {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .btn-export {
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            display: inline-flex;
+            align-items: center;
             gap: 10px;
-            margin: 20px 0;
+        }
+
+        .btn-export:hover {
+            background: #218838;
         }
 
         .grand-total {
@@ -197,117 +319,6 @@
             margin-top: 20px;
         }
 
-        .btn-export {
-            background: #28a745;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.1em;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-export:hover {
-            background: #218838;
-        }
-
-        .add-buyer-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .add-buyer-form input {
-            flex: 1;
-            min-width: 200px;
-            max-width: 400px;
-        }
-
-        .products-section {
-            background: #fff3cd;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 3px solid #ffc107;
-        }
-
-        .products-section h2 {
-            color: #ff6b6b;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .product-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .product-card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #e9ecef;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s;
-        }
-
-        .product-card:hover {
-            border-color: #ffc107;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .product-info {
-            flex: 1;
-        }
-
-        .product-name {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .product-price {
-            color: #667eea;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-
-        .add-product-form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .add-product-form input {
-            flex: 1;
-            min-width: 150px;
-        }
-
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s;
-            background: white;
-        }
-
-        select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -317,42 +328,29 @@
                 font-size: 1.8em;
             }
 
-            th, td {
-                padding: 8px 4px;
-                font-size: 0.9em;
-            }
-
             .btn {
                 padding: 10px 16px;
                 font-size: 0.9em;
-            }
-
-            .buyer-name {
-                font-size: 1.2em;
-            }
-
-            .buyer-total {
-                font-size: 1.1em;
             }
 
             .grand-total {
                 font-size: 1.4em;
                 padding: 20px;
             }
+
+            .numbers-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* iPad specific optimizations */
         @media (min-width: 768px) and (max-width: 1024px) {
             .container {
                 max-width: 95%;
             }
 
-            table {
-                font-size: 1.1em;
-            }
-
             input[type="text"],
-            input[type="number"] {
+            input[type="number"],
+            select {
                 font-size: 1.1em;
                 padding: 12px;
             }
@@ -362,23 +360,23 @@
                 font-size: 1.1em;
             }
         }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px;
-            color: #6c757d;
-            font-size: 1.2em;
-        }
-
-        .item-total {
-            font-weight: bold;
-            color: #667eea;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>📝 ตารางบันทึกการซื้อของ</h1>
+
+        <!-- Customer Management Section -->
+        <div class="products-section" style="background: #e7f3ff; border-color: #2196F3;">
+            <h2>👥 จัดการลูกค้า</h2>
+            
+            <div class="add-product-form">
+                <input type="text" id="newCustomerName" placeholder="ชื่อลูกค้า" />
+                <button class="btn btn-success" onclick="addCustomer()">➕ เพิ่มลูกค้า</button>
+            </div>
+
+            <div id="customerList" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;"></div>
+        </div>
 
         <!-- Products Management Section -->
         <div class="products-section">
@@ -386,20 +384,18 @@
             
             <div class="add-product-form">
                 <input type="text" id="newProductName" placeholder="ชื่อสินค้า" />
-                <input type="number" id="newProductPrice" placeholder="ราคา (บาท)" min="0" step="0.01" />
-                <button class="btn btn-success" onclick="addProduct()">➕ เพิ่มสินค้า</button>
+                <input type="number" id="newProductPrice" placeholder="ราคาต่อเลข (บาท)" min="0" step="0.01" />
+                <button class="btn btn-success" onclick="addProduct()">➕ เพิ่มสินค้าใหม่</button>
             </div>
 
             <div class="product-list" id="productList"></div>
         </div>
 
-        <!-- Buyers Management Section -->
-        <div class="add-buyer-form">
-            <input type="text" id="newBuyerName" placeholder="ชื่อผู้ซื้อ" />
-            <button class="btn btn-success" onclick="addBuyer()">➕ เพิ่มผู้ซื้อ</button>
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <h3>📊 สรุปยอดของแต่ละคน</h3>
+            <div id="detailedSummary"></div>
         </div>
-
-        <div id="buyersContainer"></div>
 
         <div class="grand-total">
             ยอดรวมทั้งหมด: <span id="grandTotal">0.00</span> บาท
@@ -417,25 +413,88 @@
 
     <script>
         let products = [];
-        let buyers = [];
+        let customers = [];
 
         // Load data from localStorage on page load
         window.onload = function() {
             const savedData = localStorage.getItem('shoppingTrackerData');
             if (savedData) {
-                const data = JSON.parse(savedData);
-                products = data.products || [];
-                buyers = data.buyers || [];
-                renderProducts();
-                renderBuyers();
+                try {
+                    const parsed = JSON.parse(savedData);
+                    products = Array.isArray(parsed.products) ? parsed.products : [];
+                    customers = Array.isArray(parsed.customers) ? parsed.customers : [];
+                } catch (e) {
+                    console.error('Error loading data:', e);
+                    products = [];
+                    customers = [];
+                }
             }
+            renderCustomers();
+            renderProducts();
+            renderSummary();
         };
 
         function saveData() {
             localStorage.setItem('shoppingTrackerData', JSON.stringify({
                 products: products,
-                buyers: buyers
+                customers: customers
             }));
+        }
+
+        // ========== Customer Management ==========
+        function addCustomer() {
+            const nameInput = document.getElementById('newCustomerName');
+            const name = nameInput.value.trim();
+            
+            if (name === '') {
+                alert('กรุณาใส่ชื่อลูกค้า');
+                return;
+            }
+
+            if (customers.includes(name)) {
+                alert('ลูกค้านี้มีอยู่แล้ว');
+                return;
+            }
+
+            customers.push(name);
+            customers.sort();
+            nameInput.value = '';
+            renderCustomers();
+            renderProducts();
+            saveData();
+        }
+
+        function deleteCustomer(customerName) {
+            if (confirm('ต้องการลบลูกค้า "' + customerName + '" ใช่หรือไม่?\n(จะลบออกจากเลขที่เลือกทั้งหมดด้วย)')) {
+                customers = customers.filter(c => c !== customerName);
+                
+                products.forEach(product => {
+                    product.numbers.forEach(num => {
+                        if (num.buyer === customerName) {
+                            num.buyer = '';
+                        }
+                    });
+                });
+                
+                renderCustomers();
+                renderProducts();
+                renderSummary();
+                saveData();
+            }
+        }
+
+        function renderCustomers() {
+            const container = document.getElementById('customerList');
+            
+            if (customers.length === 0) {
+                container.innerHTML = '<span style="color: #999;">ยังไม่มีลูกค้า กรุณาเพิ่มลูกค้า</span>';
+                return;
+            }
+
+            container.innerHTML = customers.map(customer => {
+                const safeName = customer.replace(/'/g, "\\'");
+                return '<span class="customer-tag">👤 ' + customer + '<button onclick="deleteCustomer(\'' + safeName + '\')">×</button></span>';
+            }).join('');
         }
 
         // ========== Product Management ==========
@@ -456,30 +515,53 @@
                 return;
             }
 
+            const numbers = [];
+            for (let i = 1; i <= 10; i++) {
+                numbers.push({
+                    number: i,
+                    buyer: '',
+                    isWinner: false
+                });
+            }
+
             products.push({
                 id: Date.now(),
                 name: name,
-                price: price
+                price: price,
+                numbers: numbers
             });
 
             nameInput.value = '';
             priceInput.value = '';
             renderProducts();
-            renderBuyers(); // Re-render buyers to update product dropdowns
+            renderSummary();
             saveData();
         }
 
         function deleteProduct(productId) {
-            if (confirm('ต้องการลบสินค้านี้ใช่หรือไม่? (จะลบออกจากรายการของผู้ซื้อทั้งหมดด้วย)')) {
+            if (confirm('ต้องการลบสินค้านี้ใช่หรือไม่?')) {
                 products = products.filter(p => p.id !== productId);
-                
-                // Remove this product from all buyers
-                buyers.forEach(buyer => {
-                    buyer.items = buyer.items.filter(item => item.productId !== productId);
-                });
-                
                 renderProducts();
-                renderBuyers();
+                renderSummary();
+                saveData();
+            }
+        }
+
+        function updateBuyer(productId, numberIndex, buyerName) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                product.numbers[numberIndex].buyer = buyerName;
+                renderSummary();
+                saveData();
+            }
+        }
+
+        function toggleWinner(productId, numberIndex) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                product.numbers[numberIndex].isWinner = !product.numbers[numberIndex].isWinner;
+                renderProducts();
+                renderSummary();
                 saveData();
             }
         }
@@ -492,344 +574,298 @@
                 return;
             }
 
-            container.innerHTML = products.map(product => `
-                <div class="product-card">
-                    <div class="product-info">
-                        <div class="product-name">${product.name}</div>
-                        <div class="product-price">${product.price.toFixed(2)} บาท</div>
-                    </div>
-                    <button class="btn btn-danger" onclick="deleteProduct(${product.id})">🗑️</button>
-                </div>
-            `).join('');
+            const customerOptions = customers.length > 0 
+                ? customers.map(c => '<option value="' + c + '">' + c + '</option>').join('')
+                : '<option value="">ไม่มีลูกค้า - กรุณาเพิ่มลูกค้าก่อน</option>';
+
+            container.innerHTML = products.map(product => {
+                const numbersHtml = product.numbers.map((num, index) => {
+                    const winnerClass = num.isWinner ? 'winner-highlight' : '';
+                    const selectId = 'select_' + product.id + '_' + index;
+                    return '<div class="number-item ' + winnerClass + '">' +
+                        '<div class="number-header">' +
+                            '<span class="number-label">เลข ' + num.number + '</span>' +
+                            '<label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">' +
+                                '<input type="checkbox" ' + (num.isWinner ? 'checked' : '') + ' ' +
+                                'onchange="toggleWinner(' + product.id + ', ' + index + ')" ' +
+                                'style="cursor: pointer;" />' +
+                                '<span style="font-size: 0.85em; color: #28a745;">🏆</span>' +
+                            '</label>' +
+                        '</div>' +
+                        '<select id="' + selectId + '" onchange="updateBuyer(' + product.id + ', ' + index + ', this.value)">' +
+                            '<option value="">-- เลือกลูกค้า --</option>' +
+                            customerOptions +
+                        '</select>' +
+                        (num.buyer ? '<div style="margin-top: 8px; color: #667eea; font-weight: bold;">👤 ' + num.buyer + '</div>' : 
+                         '<div style="margin-top: 8px; color: #999; font-size: 0.85em;">ยังไม่เลือกลูกค้า</div>') +
+                    '</div>';
+                }).join('');
+
+                return '<div class="product-card">' +
+                    '<div class="product-header">' +
+                        '<div>' +
+                            '<span class="product-name-display">' + product.name + '</span>' +
+                            '<div style="color: #667eea; font-size: 1.2em; margin-top: 5px;">' +
+                                'ราคาเลขละ: ' + product.price.toFixed(2) + ' บาท' +
+                            '</div>' +
+                        '</div>' +
+                        '<button class="btn btn-danger" onclick="deleteProduct(' + product.id + ')">🗑️ ลบสินค้า</button>' +
+                    '</div>' +
+                    '<div class="numbers-grid">' + numbersHtml + '</div>' +
+                '</div>';
+            }).join('');
+
+            // Set selected values after rendering
+            products.forEach(product => {
+                product.numbers.forEach((num, index) => {
+                    if (num.buyer) {
+                        const selectId = 'select_' + product.id + '_' + index;
+                        const selectElement = document.getElementById(selectId);
+                        if (selectElement) {
+                            selectElement.value = num.buyer;
+                        }
+                    }
+                });
+            });
         }
 
-        // ========== Buyer Management ==========
-        function addBuyer() {
-            const nameInput = document.getElementById('newBuyerName');
-            const name = nameInput.value.trim();
-            
-            if (name === '') {
-                alert('กรุณาใส่ชื่อผู้ซื้อ');
-                return;
-            }
+        function calculateCustomerDetails() {
+            const customerDetails = {};
 
-            buyers.push({
-                id: Date.now(),
-                name: name,
-                items: []
+            products.forEach(product => {
+                product.numbers.forEach(num => {
+                    if (num.buyer && num.buyer.trim() !== '') {
+                        const customerName = num.buyer.trim();
+                        if (!customerDetails[customerName]) {
+                            customerDetails[customerName] = {
+                                items: [],
+                                total: 0,
+                                winCount: 0,
+                                winAmount: 0
+                            };
+                        }
+                        customerDetails[customerName].items.push({
+                            product: product.name,
+                            number: num.number,
+                            price: product.price,
+                            isWinner: num.isWinner
+                        });
+                        customerDetails[customerName].total += product.price;
+                        if (num.isWinner) {
+                            customerDetails[customerName].winCount += 1;
+                            customerDetails[customerName].winAmount += product.price;
+                        }
+                    }
+                });
             });
 
-            nameInput.value = '';
-            renderBuyers();
-            saveData();
-        }
-
-        function deleteBuyer(buyerId) {
-            if (confirm('ต้องการลบผู้ซื้อคนนี้ใช่หรือไม่?')) {
-                buyers = buyers.filter(b => b.id !== buyerId);
-                renderBuyers();
-                saveData();
-            }
-        }
-
-        function addItemToBuyer(buyerId) {
-            const selectId = 'productSelect_' + buyerId;
-            const select = document.getElementById(selectId);
-            const productId = parseInt(select.value);
-            
-            if (isNaN(productId)) {
-                alert('กรุณาเลือกสินค้า');
-                return;
-            }
-
-            const buyer = buyers.find(b => b.id === buyerId);
-            const product = products.find(p => p.id === productId);
-            
-            if (buyer && product) {
-                // Check if product already exists in buyer's items
-                const existingItem = buyer.items.find(item => item.productId === productId);
-                
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    buyer.items.push({
-                        id: Date.now(),
-                        productId: productId,
-                        quantity: 1
-                    });
-                }
-                
-                renderBuyers();
-                saveData();
-            }
-        }
-
-        function deleteItem(buyerId, itemId) {
-            const buyer = buyers.find(b => b.id === buyerId);
-            if (buyer) {
-                buyer.items = buyer.items.filter(i => i.id !== itemId);
-                renderBuyers();
-                saveData();
-            }
-        }
-
-        function updateItemQuantity(buyerId, itemId, quantity) {
-            const buyer = buyers.find(b => b.id === buyerId);
-            if (buyer) {
-                const item = buyer.items.find(i => i.id === itemId);
-                if (item) {
-                    item.quantity = parseInt(quantity) || 1;
-                    renderBuyers();
-                    saveData();
-                }
-            }
-        }
-
-        function calculateBuyerTotal(buyer) {
-            return buyer.items.reduce((sum, item) => {
-                const product = products.find(p => p.id === item.productId);
-                if (product) {
-                    return sum + (product.price * item.quantity);
-                }
-                return sum;
-            }, 0);
+            return customerDetails;
         }
 
         function calculateGrandTotal() {
-            return buyers.reduce((sum, buyer) => {
-                return sum + calculateBuyerTotal(buyer);
-            }, 0);
+            let total = 0;
+            products.forEach(product => {
+                product.numbers.forEach(num => {
+                    if (num.buyer) {
+                        total += product.price;
+                    }
+                });
+            });
+            return total;
         }
 
-        function renderBuyers() {
-            const container = document.getElementById('buyersContainer');
+        function renderSummary() {
+            const customerDetails = calculateCustomerDetails();
+            const container = document.getElementById('detailedSummary');
             
-            if (buyers.length === 0) {
-                container.innerHTML = '<div class="empty-state">ยังไม่มีผู้ซื้อ กรุณาเพิ่มผู้ซื้อใหม่</div>';
+            if (Object.keys(customerDetails).length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #999; padding: 40px;">ยังไม่มีข้อมูล</div>';
                 document.getElementById('grandTotal').textContent = '0.00';
                 return;
             }
 
-            container.innerHTML = buyers.map(buyer => {
-                const buyerTotal = calculateBuyerTotal(buyer);
-                
-                // Create product options
-                const productOptions = products.map(p => 
-                    `<option value="${p.id}">${p.name} - ${p.price.toFixed(2)} บาท</option>`
-                ).join('');
-                
-                return `
-                    <div class="buyer-section">
-                        <div class="buyer-header">
-                            <span class="buyer-name">👤 ${buyer.name}</span>
-                            <span class="buyer-total">รวม: ${buyerTotal.toFixed(2)} บาท</span>
-                            <button class="delete-buyer-btn" onclick="deleteBuyer(${buyer.id})">🗑️ ลบผู้ซื้อ</button>
-                        </div>
-                        
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th style="width: 50%">สินค้า</th>
-                                    <th style="width: 15%">ราคา/ชิ้น</th>
-                                    <th style="width: 15%">จำนวน</th>
-                                    <th style="width: 15%">รวม (บาท)</th>
-                                    <th style="width: 5%"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${buyer.items.map(item => {
-                                    const product = products.find(p => p.id === item.productId);
-                                    if (!product) return ''; // Skip if product was deleted
-                                    
-                                    const itemTotal = product.price * item.quantity;
-                                    return `
-                                        <tr>
-                                            <td><strong>${product.name}</strong></td>
-                                            <td>${product.price.toFixed(2)}</td>
-                                            <td>
-                                                <input type="number" 
-                                                       value="${item.quantity}" 
-                                                       onchange="updateItemQuantity(${buyer.id}, ${item.id}, this.value)"
-                                                       min="1"
-                                                       style="width: 80px;" />
-                                            </td>
-                                            <td class="item-total">${itemTotal.toFixed(2)}</td>
-                                            <td>
-                                                <button class="btn btn-danger" onclick="deleteItem(${buyer.id}, ${item.id})">🗑️</button>
-                                            </td>
-                                        </tr>
-                                    `;
-                                }).join('')}
-                                ${buyer.items.length === 0 ? '<tr><td colspan="5" style="text-align: center; color: #999;">ยังไม่มีสินค้า</td></tr>' : ''}
-                            </tbody>
-                        </table>
-                        
-                        <div class="button-group">
-                            <select id="productSelect_${buyer.id}" style="max-width: 300px;">
-                                <option value="">-- เลือกสินค้า --</option>
-                                ${productOptions}
-                            </select>
-                            <button class="btn btn-primary" onclick="addItemToBuyer(${buyer.id})">➕ เพิ่มสินค้า</button>
-                        </div>
-                    </div>
-                `;
+            const sortedCustomers = Object.entries(customerDetails).sort((a, b) => a[0].localeCompare(b[0]));
+
+            container.innerHTML = sortedCustomers.map(([name, data]) => {
+                const itemsHtml = data.items.map(item => {
+                    return '<tr>' +
+                        '<td><strong>' + item.product + '</strong></td>' +
+                        '<td>เลข ' + item.number + '</td>' +
+                        '<td>' + item.price.toFixed(2) + ' บาท</td>' +
+                        '<td>' + (item.isWinner ? '<span class="winner-badge">🏆 ถูกรางวัล</span>' : '-') + '</td>' +
+                    '</tr>';
+                }).join('');
+
+                return '<div class="detailed-summary-card">' +
+                    '<div class="summary-header">' +
+                        '<span class="summary-customer-name">👤 ' + name + '</span>' +
+                        '<span class="summary-total">รวม: ' + data.total.toFixed(2) + ' บาท</span>' +
+                    '</div>' +
+                    '<table class="summary-items-table">' +
+                        '<thead>' +
+                            '<tr>' +
+                                '<th>สินค้า</th>' +
+                                '<th>เลขที่</th>' +
+                                '<th>ราคา</th>' +
+                                '<th>สถานะ</th>' +
+                            '</tr>' +
+                        '</thead>' +
+                        '<tbody>' +
+                            itemsHtml +
+                            '<tr style="background: #f8f9fa; font-weight: bold;">' +
+                                '<td colspan="2">รวมทั้งหมด</td>' +
+                                '<td>' + data.total.toFixed(2) + ' บาท</td>' +
+                                '<td>' + (data.winCount > 0 ? '🏆 ' + data.winCount + ' เลข (' + data.winAmount.toFixed(2) + ' บาท)' : '-') + '</td>' +
+                            '</tr>' +
+                        '</tbody>' +
+                    '</table>' +
+                '</div>';
             }).join('');
 
             document.getElementById('grandTotal').textContent = calculateGrandTotal().toFixed(2);
         }
 
-        // Allow Enter key to add product
-        document.getElementById('newProductName').addEventListener('keypress', function(e) {
+        // Allow Enter key
+        document.getElementById('newCustomerName').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                addProduct();
+                addCustomer();
             }
         });
-        
+
+        document.getElementById('newProductName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('newProductPrice').focus();
+            }
+        });
+
         document.getElementById('newProductPrice').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 addProduct();
             }
         });
 
-        // Allow Enter key to add buyer
-        document.getElementById('newBuyerName').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                addBuyer();
-            }
-        });
-
         // ========== Export to Excel ==========
         function exportToExcel() {
-            if (buyers.length === 0) {
-                alert('ไม่มีข้อมูลให้ Export กรุณาเพิ่มผู้ซื้อและสินค้าก่อน');
+            if (products.length === 0) {
+                alert('ไม่มีข้อมูลให้ Export กรุณาเพิ่มสินค้าก่อน');
                 return;
             }
 
-            // Create a new workbook
             const wb = XLSX.utils.book_new();
+            const customerDetails = calculateCustomerDetails();
 
-            // ===== Sheet 1: รายการสินค้าทั้งหมด =====
-            const productData = [
-                ['รายการสินค้าทั้งหมด'],
-                [],
-                ['ชื่อสินค้า', 'ราคา (บาท)']
-            ];
-
-            products.forEach(product => {
-                productData.push([product.name, product.price]);
-            });
-
-            const ws1 = XLSX.utils.aoa_to_sheet(productData);
-            
-            // Set column widths for products sheet
-            ws1['!cols'] = [
-                { wch: 30 },
-                { wch: 15 }
-            ];
-
-            XLSX.utils.book_append_sheet(wb, ws1, 'รายการสินค้า');
-
-            // ===== Sheet 2: สรุปรายการซื้อของแต่ละคน =====
+            // Sheet 1: สรุปยอดลูกค้า
             const summaryData = [
-                ['สรุปรายการซื้อของ'],
+                ['สรุปยอดของแต่ละลูกค้า'],
                 [],
-                ['ผู้ซื้อ', 'ชื่อสินค้า', 'ราคา/ชิ้น', 'จำนวน', 'รวม (บาท)']
+                ['ลูกค้า', 'จำนวนเลข', 'ยอดรวม (บาท)', 'ถูกรางวัล (เลข)', 'ยอดถูกรางวัล (บาท)']
             ];
 
-            buyers.forEach(buyer => {
-                buyer.items.forEach((item, index) => {
-                    const product = products.find(p => p.id === item.productId);
-                    if (product) {
-                        const itemTotal = product.price * item.quantity;
-                        summaryData.push([
-                            index === 0 ? buyer.name : '',
-                            product.name,
-                            product.price,
-                            item.quantity,
-                            itemTotal
-                        ]);
-                    }
-                });
-
-                // Add buyer total
-                const buyerTotal = calculateBuyerTotal(buyer);
+            const sortedCustomers = Object.entries(customerDetails).sort((a, b) => a[0].localeCompare(b[0]));
+            sortedCustomers.forEach(([name, data]) => {
                 summaryData.push([
-                    '',
-                    '',
-                    '',
-                    'รวม:',
-                    buyerTotal
+                    name,
+                    data.items.length,
+                    data.total,
+                    data.winCount,
+                    data.winAmount
                 ]);
-                summaryData.push([]); // Empty row for spacing
             });
 
-            // Add grand total
-            summaryData.push([
-                '',
-                '',
-                '',
-                'ยอดรวมทั้งหมด:',
-                calculateGrandTotal()
-            ]);
+            summaryData.push([]);
+            summaryData.push(['ยอดรวมทั้งหมด', '', calculateGrandTotal(), '', '']);
 
-            const ws2 = XLSX.utils.aoa_to_sheet(summaryData);
-            
-            // Set column widths for summary sheet
-            ws2['!cols'] = [
-                { wch: 20 },
-                { wch: 30 },
-                { wch: 15 },
-                { wch: 10 },
-                { wch: 15 }
+            const ws1 = XLSX.utils.aoa_to_sheet(summaryData);
+            ws1['!cols'] = [{ wch: 25 }, { wch: 15 }, { wch: 18 }, { wch: 20 }, { wch: 22 }];
+            XLSX.utils.book_append_sheet(wb, ws1, 'สรุปยอดลูกค้า');
+
+            // Sheet 2: รายละเอียดทั้งหมด
+            const detailData = [
+                ['รายละเอียดการซื้อทั้งหมด'],
+                [],
+                ['ลูกค้า', 'สินค้า', 'เลขที่', 'ราคา', 'ถูกรางวัล']
             ];
 
-            XLSX.utils.book_append_sheet(wb, ws2, 'สรุปรายการ');
+            sortedCustomers.forEach(([name, data]) => {
+                data.items.forEach((item, index) => {
+                    detailData.push([
+                        index === 0 ? name : '',
+                        item.product,
+                        'เลข ' + item.number,
+                        item.price,
+                        item.isWinner ? '🏆 ถูกรางวัล' : ''
+                    ]);
+                });
+                detailData.push([]);
+            });
 
-            // ===== Sheet 3: รายละเอียดแต่ละคน (แยกชีท) =====
-            buyers.forEach(buyer => {
-                const buyerData = [
-                    [`รายการซื้อของ: ${buyer.name}`],
+            const ws2 = XLSX.utils.aoa_to_sheet(detailData);
+            ws2['!cols'] = [{ wch: 25 }, { wch: 25 }, { wch: 12 }, { wch: 12 }, { wch: 15 }];
+            XLSX.utils.book_append_sheet(wb, ws2, 'รายละเอียดทั้งหมด');
+
+            // Sheet 3+: รายละเอียดแต่ละลูกค้า
+            sortedCustomers.forEach(([name, data]) => {
+                const customerData = [
+                    ['ลูกค้า: ' + name],
                     [],
-                    ['ชื่อสินค้า', 'ราคา/ชิ้น', 'จำนวน', 'รวม (บาท)']
+                    ['สินค้า', 'เลขที่', 'ราคา', 'ถูกรางวัล']
                 ];
 
-                buyer.items.forEach(item => {
-                    const product = products.find(p => p.id === item.productId);
-                    if (product) {
-                        const itemTotal = product.price * item.quantity;
-                        buyerData.push([
-                            product.name,
+                data.items.forEach(item => {
+                    customerData.push([
+                        item.product,
+                        'เลข ' + item.number,
+                        item.price,
+                        item.isWinner ? '🏆 ถูกรางวัล' : ''
+                    ]);
+                });
+
+                customerData.push([]);
+                customerData.push(['รวมทั้งหมด', '', data.total, '']);
+                if (data.winCount > 0) {
+                    customerData.push(['ถูกรางวัลรวม', data.winCount + ' เลข', data.winAmount, '']);
+                }
+
+                const wsCustomer = XLSX.utils.aoa_to_sheet(customerData);
+                wsCustomer['!cols'] = [{ wch: 25 }, { wch: 12 }, { wch: 15 }, { wch: 15 }];
+
+                const sheetName = name.substring(0, 31).replace(/[:\\/?*\[\]]/g, '');
+                XLSX.utils.book_append_sheet(wb, wsCustomer, sheetName);
+            });
+
+            // Sheet: แยกตามสินค้า
+            products.forEach(product => {
+                const productData = [
+                    ['สินค้า: ' + product.name],
+                    ['ราคาต่อเลข: ' + product.price.toFixed(2) + ' บาท'],
+                    [],
+                    ['เลขที่', 'ลูกค้า', 'ราคา', 'ถูกรางวัล']
+                ];
+
+                product.numbers.forEach(num => {
+                    if (num.buyer) {
+                        productData.push([
+                            'เลข ' + num.number,
+                            num.buyer,
                             product.price,
-                            item.quantity,
-                            itemTotal
+                            num.isWinner ? '🏆 ถูกรางวัล' : ''
                         ]);
                     }
                 });
 
-                buyerData.push([]);
-                buyerData.push(['', '', 'ยอดรวม:', calculateBuyerTotal(buyer)]);
+                const wsProduct = XLSX.utils.aoa_to_sheet(productData);
+                wsProduct['!cols'] = [{ wch: 12 }, { wch: 20 }, { wch: 12 }, { wch: 15 }];
 
-                const wsbuyer = XLSX.utils.aoa_to_sheet(buyerData);
-                
-                // Set column widths
-                wsbuyer['!cols'] = [
-                    { wch: 30 },
-                    { wch: 15 },
-                    { wch: 10 },
-                    { wch: 15 }
-                ];
-
-                // Clean buyer name for sheet name (max 31 chars, no special chars)
-                let sheetName = buyer.name.substring(0, 31).replace(/[:\\/?*\[\]]/g, '');
-                XLSX.utils.book_append_sheet(wb, wsbuyer, sheetName);
+                const sheetName = ('สินค้า_' + product.name).substring(0, 31).replace(/[:\\/?*\[\]]/g, '');
+                XLSX.utils.book_append_sheet(wb, wsProduct, sheetName);
             });
 
-            // Generate filename with current date
             const now = new Date();
-            const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-            const filename = `รายงานการซื้อของ_${dateStr}.xlsx`;
+            const dateStr = now.getFullYear() + '-' + 
+                           String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                           String(now.getDate()).padStart(2, '0');
+            const filename = 'รายงานการซื้อของ_' + dateStr + '.xlsx';
 
-            // Write and download the file
             XLSX.writeFile(wb, filename);
         }
     </script>

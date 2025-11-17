@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตารางบันทึกการซื้อของ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .buyer-section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .buyer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .buyer-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .buyer-total {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .delete-buyer-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .delete-buyer-btn:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            display: block;
+        }
+
+        thead {
+            background: #667eea;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tbody {
+            display: table;
+            width: 100%;
+        }
+
+        tbody tr:hover {
+            background: #f1f3f5;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+            padding: 8px 12px;
+            font-size: 0.9em;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .grand-total {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .export-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-export {
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-export:hover {
+            background: #218838;
+        }
+
+        .add-buyer-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .add-buyer-form input {
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+        }
+
+        .products-section {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 3px solid #ffc107;
+        }
+
+        .products-section h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: #ffc107;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            color: #667eea;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .add-product-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .add-product-form input {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            th, td {
+                padding: 8px 4px;
+                font-size: 0.9em;
+            }
+
+            .btn {
+                padding: 10px 16px;
+                font-size: 0.9em;
+            }
+
+            .buyer-name {
+                font-size: 1.2em;
+            }
+
+            .buyer-total {
+                font-size: 1.1em;
+            }
+
+            .grand-total {
+                font-size: 1.4em;
+                padding: 20px;
+            }
+        }
+
+        /* iPad specific optimizations */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .container {
+                max-width: 95%;
+            }
+
+            table {
+                font-size: 1.1em;
+            }
+
+            input[type="text"],
+            input[type="number"] {
+                font-size: 1.1em;
+                padding: 12px;
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 1.1em;
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-size: 1.2em;
+        }
+
+        .item-total {
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 ตารางบันทึกการซื้อของ</h1>
+
+        <!-- Products Management Section -->
+        <div class="products-section">
+            <h2>🏷️ จัดการสินค้า</h2>
+            
+            <div class="add-product-form">
+                <input type="text" id="newProductName" placeholder="ชื่อสินค้า" />
+                <input type="number" id="newProductPrice" placeholder="ราคา (บาท)" min="0" step="0.01" />
+                <button class="btn btn-success" onclick="addProduct()">➕ เพิ่มสินค้า</button>
+            </div>
+
+            <div class="product-list" id="productList"></div>
+        </div>
+
+        <!-- Buyers Management Section -->
+        <div class="add-buyer-form">
+            <input type="text" id="newBuyerName" placeholder="ชื่อผู้ซื้อ" />
+            <button class="btn btn-success" onclick="addBuyer()">➕ เพิ่มผู้ซื้อ</button>
+        </div>
+
+        <div id="buyersContainer"></div>
+
+        <div class="grand-total">
+            ยอดรวมทั้งหมด: <span id="grandTotal">0.00</span> บาท
+        </div>
+
+        <div class="export-section">
+            <button class="btn btn-export" onclick="exportToExcel()">
+                📊 Export รายงานเป็น Excel
+            </button>
+        </div>
+    </div>
+
+    <!-- SheetJS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script>
+        let products = [];
+        let buyers = [];
+
+        // Load data from localStorage on page load
+        window.onload = function() {
+            const savedData = localStorage.getItem('shoppingTrackerData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                products = data.products || [];
+                buyers = data.buyers || [];
+                renderProducts();
+                renderBuyers();
+            }
+        };
+
+        function saveData() {
+            localStorage.setItem('shoppingTrackerData', JSON.stringify({
+                products: products,
+                buyers: buyers
+            }));
+        }
+
+        // ========== Product Management ==========
+        function addProduct() {
+            const nameInput = document.getElementById('newProductName');
+            const priceInput = document.getElementById('newProductPrice');
+            
+            const name = nameInput.value.trim();
+            const price = parseFloat(priceInput.value);
+            
+            if (name === '') {
+                alert('กรุณาใส่ชื่อสินค้า');
+                return;
+            }
+            
+            if (isNaN(price) || price < 0) {
+                alert('กรุณาใส่ราคาที่ถูกต้อง');
+                return;
+            }
+
+            products.push({
+                id: Date.now(),
+                name: name,
+                price: price
+            });
+
+            nameInput.value = '';
+            priceInput.value = '';
+            renderProducts();
+            renderBuyers(); // Re-render buyers to update product dropdowns
+            saveData();
+        }
+
+        function deleteProduct(productId) {
+            if (confirm('ต้องการลบสินค้านี้ใช่หรือไม่? (จะลบออกจากรายการของผู้ซื้อทั้งหมดด้วย)')) {
+                products = products.filter(p => p.id !== productId);
+                
+                // Remove this product from all buyers
+                buyers.forEach(buyer => {
+                    buyer.items = buyer.items.filter(item => item.productId !== productId);
+                });
+                
+                renderProducts();
+                renderBuyers();
+                saveData();
+            }
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('productList');
+            
+            if (products.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #999; padding: 20px;">ยังไม่มีสินค้า กรุณาเพิ่มสินค้าใหม่</div>';
+                return;
+            }
+
+            container.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price.toFixed(2)} บาท</div>
+                    </div>
+                    <button class="btn btn-danger" onclick="deleteProduct(${product.id})">🗑️</button>
+                </div>
+            `).join('');
+        }
+
+        // ========== Buyer Management ==========
+        function addBuyer() {
+            const nameInput = document.getElementById('newBuyerName');
+            const name = nameInput.value.trim();
+            
+            if (name === '') {
+                alert('กรุณาใส่ชื่อผู้ซื้อ');
+                return;
+            }
+
+            buyers.push({
+                id: Date.now(),
+                name: name,
+                items: []
+            });
+
+            nameInput.value = '';
+            renderBuyers();
+            saveData();
+        }
+
+        function deleteBuyer(buyerId) {
+            if (confirm('ต้องการลบผู้ซื้อคนนี้ใช่หรือไม่?')) {
+                buyers = buyers.filter(b => b.id !== buyerId);
+                renderBuyers();
+                saveData();
+            }
+        }
+
+        function addItemToBuyer(buyerId) {
+            const selectId = 'productSelect_' + buyerId;
+            const select = document.getElementById(selectId);
+            const productId = parseInt(select.value);
+            
+            if (isNaN(productId)) {
+                alert('กรุณาเลือกสินค้า');
+                return;
+            }
+
+            const buyer = buyers.find(b => b.id === buyerId);
+            const product = products.find(p => p.id === productId);
+            
+            if (buyer && product) {
+                // Check if product already exists in buyer's items
+                const existingItem = buyer.items.find(item => item.productId === productId);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    buyer.items.push({
+                        id: Date.now(),
+                        productId: productId,
+                        quantity: 1
+                    });
+                }
+                
+                renderBuyers();
+                saveData();
+            }
+        }
+
+        function deleteItem(buyerId, itemId) {
+            const buyer = buyers.find(b => b.id === buyerId);
+            if (buyer) {
+                buyer.items = buyer.items.filter(i => i.id !== itemId);
+                renderBuyers();
+                saveData();
+            }
+        }
+
+        function updateItemQuantity(buyerId, itemId, quantity) {
+            const buyer = buyers.find(b => b.id === buyerId);
+            if (buyer) {
+                const item = buyer.items.find(i => i.id === itemId);
+                if (item) {
+                    item.quantity = parseInt(quantity) || 1;
+                    renderBuyers();
+                    saveData();
+                }
+            }
+        }
+
+        function calculateBuyerTotal(buyer) {
+            return buyer.items.reduce((sum, item) => {
+                const product = products.find(p => p.id === item.productId);
+                if (product) {
+                    return sum + (product.price * item.quantity);
+                }
+                return sum;
+            }, 0);
+        }
+
+        function calculateGrandTotal() {
+            return buyers.reduce((sum, buyer) => {
+                return sum + calculateBuyerTotal(buyer);
+            }, 0);
+        }
+
+        function renderBuyers() {
+            const container = document.getElementById('buyersContainer');
+            
+            if (buyers.length === 0) {
+                container.innerHTML = '<div class="empty-state">ยังไม่มีผู้ซื้อ กรุณาเพิ่มผู้ซื้อใหม่</div>';
+                document.getElementById('grandTotal').textContent = '0.00';
+                return;
+            }
+
+            container.innerHTML = buyers.map(buyer => {
+                const buyerTotal = calculateBuyerTotal(buyer);
+                
+                // Create product options
+                const productOptions = products.map(p => 
+                    `<option value="${p.id}">${p.name} - ${p.price.toFixed(2)} บาท</option>`
+                ).join('');
+                
+                return `
+                    <div class="buyer-section">
+                        <div class="buyer-header">
+                            <span class="buyer-name">👤 ${buyer.name}</span>
+                            <span class="buyer-total">รวม: ${buyerTotal.toFixed(2)} บาท</span>
+                            <button class="delete-buyer-btn" onclick="deleteBuyer(${buyer.id})">🗑️ ลบผู้ซื้อ</button>
+                        </div>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 50%">สินค้า</th>
+                                    <th style="width: 15%">ราคา/ชิ้น</th>
+                                    <th style="width: 15%">จำนวน</th>
+                                    <th style="width: 15%">รวม (บาท)</th>
+                                    <th style="width: 5%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${buyer.items.map(item => {
+                                    const product = products.find(p => p.id === item.productId);
+                                    if (!product) return ''; // Skip if product was deleted
+                                    
+                                    const itemTotal = product.price * item.quantity;
+                                    return `
+                                        <tr>
+                                            <td><strong>${product.name}</strong></td>
+                                            <td>${product.price.toFixed(2)}</td>
+                                            <td>
+                                                <input type="number" 
+                                                       value="${item.quantity}" 
+                                                       onchange="updateItemQuantity(${buyer.id}, ${item.id}, this.value)"
+                                                       min="1"
+                                                       style="width: 80px;" />
+                                            </td>
+                                            <td class="item-total">${itemTotal.toFixed(2)}</td>
+                                            <td>
+                                                <button class="btn btn-danger" onclick="deleteItem(${buyer.id}, ${item.id})">🗑️</button>
+                                            </td>
+                                        </tr>
+                                    `;
+                                }).join('')}
+                                ${buyer.items.length === 0 ? '<tr><td colspan="5" style="text-align: center; color: #999;">ยังไม่มีสินค้า</td></tr>' : ''}
+                            </tbody>
+                        </table>
+                        
+                        <div class="button-group">
+                            <select id="productSelect_${buyer.id}" style="max-width: 300px;">
+                                <option value="">-- เลือกสินค้า --</option>
+                                ${productOptions}
+                            </select>
+                            <button class="btn btn-primary" onclick="addItemToBuyer(${buyer.id})">➕ เพิ่มสินค้า</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('grandTotal').textContent = calculateGrandTotal().toFixed(2);
+        }
+
+        // Allow Enter key to add product
+        document.getElementById('newProductName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addProduct();
+            }
+        });
+        
+        document.getElementById('newProductPrice').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addProduct();
+            }
+        });
+
+        // Allow Enter key to add buyer
+        document.getElementById('newBuyerName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addBuyer();
+            }
+        });
+
+        // ========== Export to Excel ==========
+        function exportToExcel() {
+            if (buyers.length === 0) {
+                alert('ไม่มีข้อมูลให้ Export กรุณาเพิ่มผู้ซื้อและสินค้าก่อน');
+                return;
+            }
+
+            // Create a new workbook
+            const wb = XLSX.utils.book_new();
+
+            // ===== Sheet 1: รายการสินค้าทั้งหมด =====
+            const productData = [
+                ['รายการสินค้าทั้งหมด'],
+                [],
+                ['ชื่อสินค้า', 'ราคา (บาท)']
+            ];
+
+            products.forEach(product => {
+                productData.push([product.name, product.price]);
+            });
+
+            const ws1 = XLSX.utils.aoa_to_sheet(productData);
+            
+            // Set column widths for products sheet
+            ws1['!cols'] = [
+                { wch: 30 },
+                { wch: 15 }
+            ];
+
+            XLSX.utils.book_append_sheet(wb, ws1, 'รายการสินค้า');
+
+            // ===== Sheet 2: สรุปรายการซื้อของแต่ละคน =====
+            const summaryData = [
+                ['สรุปรายการซื้อของ'],
+                [],
+                ['ผู้ซื้อ', 'ชื่อสินค้า', 'ราคา/ชิ้น', 'จำนวน', 'รวม (บาท)']
+            ];
+
+            buyers.forEach(buyer => {
+                buyer.items.forEach((item, index) => {
+                    const product = products.find(p => p.id === item.productId);
+                    if (product) {
+                        const itemTotal = product.price * item.quantity;
+                        summaryData.push([
+                            index === 0 ? buyer.name : '',
+                            product.name,
+                            product.price,
+                            item.quantity,
+                            itemTotal
+                        ]);
+                    }
+                });
+
+                // Add buyer total
+                const buyerTotal = calculateBuyerTotal(buyer);
+                summaryData.push([
+                    '',
+                    '',
+                    '',
+                    'รวม:',
+                    buyerTotal
+                ]);
+                summaryData.push([]); // Empty row for spacing
+            });
+
+            // Add grand total
+            summaryData.push([
+                '',
+                '',
+                '',
+                'ยอดรวมทั้งหมด:',
+                calculateGrandTotal()
+            ]);
+
+            const ws2 = XLSX.utils.aoa_to_sheet(summaryData);
+            
+            // Set column widths for summary sheet
+            ws2['!cols'] = [
+                { wch: 20 },
+                { wch: 30 },
+                { wch: 15 },
+                { wch: 10 },
+                { wch: 15 }
+            ];
+
+            XLSX.utils.book_append_sheet(wb, ws2, 'สรุปรายการ');
+
+            // ===== Sheet 3: รายละเอียดแต่ละคน (แยกชีท) =====
+            buyers.forEach(buyer => {
+                const buyerData = [
+                    [`รายการซื้อของ: ${buyer.name}`],
+                    [],
+                    ['ชื่อสินค้า', 'ราคา/ชิ้น', 'จำนวน', 'รวม (บาท)']
+                ];
+
+                buyer.items.forEach(item => {
+                    const product = products.find(p => p.id === item.productId);
+                    if (product) {
+                        const itemTotal = product.price * item.quantity;
+                        buyerData.push([
+                            product.name,
+                            product.price,
+                            item.quantity,
+                            itemTotal
+                        ]);
+                    }
+                });
+
+                buyerData.push([]);
+                buyerData.push(['', '', 'ยอดรวม:', calculateBuyerTotal(buyer)]);
+
+                const wsbuyer = XLSX.utils.aoa_to_sheet(buyerData);
+                
+                // Set column widths
+                wsbuyer['!cols'] = [
+                    { wch: 30 },
+                    { wch: 15 },
+                    { wch: 10 },
+                    { wch: 15 }
+                ];
+
+                // Clean buyer name for sheet name (max 31 chars, no special chars)
+                let sheetName = buyer.name.substring(0, 31).replace(/[:\\/?*\[\]]/g, '');
+                XLSX.utils.book_append_sheet(wb, wsbuyer, sheetName);
+            });
+
+            // Generate filename with current date
+            const now = new Date();
+            const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+            const filename = `รายงานการซื้อของ_${dateStr}.xlsx`;
+
+            // Write and download the file
+            XLSX.writeFile(wb, filename);
+        }
+    </script>
+</body>
+</html>
